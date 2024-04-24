@@ -50,6 +50,7 @@ cmd_h_dic = {v: k for k, v in cmd_t_dic.items()}
 #room_h_dic = {'livingroom':'00', 'myhome':'00', 'bedroom':'01', 'room1':'02', 'room2':'03'}
 room_h_dic = {'livingroom':'00', 'room1':'01', 'room2':'02', 'room3':'03', 'room4':'04', 'room5':'05', 'kitchen':'06'}
 
+room_names = [ 'livingroom', 'workingroom_balcony', 'ejoonroom', 'jiwonroom', 'grandroom', 'anbang', 'dining_table']
 # mqtt functions ----------------------------
 
 def init_mqttc():
@@ -649,9 +650,9 @@ def publish_discovery(dev, sub=''):
         light_cnt = light_cnt + 1
      
         # for num in range(1, int(config.get('User', 'light_count'))+1):  # only one light per room
-        topic = 'homeassistant/light/kocom_{}_light{}/config'.format(sub, 1) # num -> 1
+        topic = 'homeassistant/light/kocom_{}_light{}/config'.format(oom_names[light_cnt-1], 1) # sub->room_names[], num -> 1
         payload = {
-            'name': '{} Light'.format(sub),
+            'name': '{} Light'.format(room_names[light_cnt-1]), # sub -> room_names[]
             'cmd_t': 'kocom/{}/light/{}/command'.format(sub, 1),
             'stat_t': 'kocom/{}/light/state'.format(sub),
             'stat_val_tpl': '{{ value_json.light_' + str(1) + ' }}',
