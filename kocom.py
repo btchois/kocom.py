@@ -568,8 +568,11 @@ def discovery():
 #https://www.home-assistant.io/docs/mqtt/discovery/
 #<discovery_prefix>/<component>/<object_id>/config
 light_cnt = 0
+thermo_cnt = 0
 def publish_discovery(dev, sub=''):
     global light_cnt
+    global thermo_cnt
+ 
     if dev == 'fan':
         topic = 'homeassistant/fan/kocom_wallpad_fan/config'
         payload = {
@@ -673,11 +676,13 @@ def publish_discovery(dev, sub=''):
         if logtxt != "" and config.get('Log', 'show_mqtt_publish') == 'True':
             logging.info(logtxt)
     elif dev == 'thermo':
+        thermo_cnt = thermo_cnt + 1
+     
         num = int(room_h_dic.get(sub))
         #ha_topic = 'homeassistant/climate/kocom_livingroom_thermostat/config'
-        topic = 'homeassistant/climate/kocom_{}_thermostat/config'.format(sub)
+        topic = 'homeassistant/climate/kocom_{}_thermostat/config'.format(room_names[thermo_cnt-1])
         payload = {
-            'name': '{} Thermostat'.format(sub),
+            'name': '{} Thermostat'.format(room_names[thermo_cnt-1]),
             'mode_cmd_t': 'kocom/room/thermo/{}/heat_mode/command'.format(num),
             'mode_stat_t': 'kocom/room/thermo/{}/state'.format(num),
             'mode_stat_tpl': '{{ value_json.heat_mode }}',
