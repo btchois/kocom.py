@@ -48,7 +48,8 @@ seq_h_dic = {v: k for k, v in seq_t_dic.items()}
 device_h_dic = {v: k for k, v in device_t_dic.items()}
 cmd_h_dic = {v: k for k, v in cmd_t_dic.items()}
 #room_h_dic = {'livingroom':'00', 'myhome':'00', 'bedroom':'01', 'room1':'02', 'room2':'03'}
-room_h_dic = {'livingroom':'00', 'room1':'01', 'room2':'02', 'room3':'03', 'room4':'04', 'room5':'05', 'kitchen':'06'}
+room_h_dic = {'myhome': '00', 'livingroom':'00', 'room1':'01', 'room2':'02', 'room3':'03', 'room4':'04', 'room5':'05', 'kitchen':'06'}
+# myhome cannot be removed because it is used in gas, fan, elevator
 
 room_names = [ 'livingroom', 'working_room_balcony', 'ejoon_room', 'jiwon_room', 'grand_room', 'anbang', 'dining_table']
 # mqtt functions ----------------------------
