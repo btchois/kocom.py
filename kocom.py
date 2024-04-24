@@ -650,7 +650,7 @@ def publish_discovery(dev, sub=''):
         light_cnt = light_cnt + 1
      
         # for num in range(1, int(config.get('User', 'light_count'))+1):  # only one light per room
-        topic = 'homeassistant/light/kocom_{}_light{}/config'.format(oom_names[light_cnt-1], 1) # sub->room_names[], num -> 1
+        topic = 'homeassistant/light/kocom_{}_light{}/config'.format(room_names[light_cnt-1], 1) # sub->room_names[], num -> 1
         payload = {
             'name': '{} Light'.format(room_names[light_cnt-1]), # sub -> room_names[]
             'cmd_t': 'kocom/{}/light/{}/command'.format(sub, 1),
