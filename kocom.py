@@ -572,7 +572,7 @@ def publish_discovery(dev, sub=''):
     if dev == 'fan':
         topic = 'homeassistant/fan/kocom_wallpad_fan/config'
         payload = {
-            'name': 'Kocom Wallpad Fan',
+            'name': 'Wallpad Fan',
             'cmd_t': 'kocom/livingroom/fan/command',
             'stat_t': 'kocom/livingroom/fan/state',
             'stat_val_tpl': '{{ value_json.state }}',
@@ -586,7 +586,7 @@ def publish_discovery(dev, sub=''):
             'qos': 0,
             'uniq_id': '{}_{}_{}'.format('kocom', 'wallpad', dev),
             'device': {
-                'name': '코콤 스마트 월패드',
+                'name': 'Kocom',
                 'ids': 'kocom_smart_wallpad',
                 'mf': 'KOCOM',
                 'mdl': '스마트 월패드',
@@ -600,7 +600,7 @@ def publish_discovery(dev, sub=''):
     elif dev == 'gas':
         topic = 'homeassistant/switch/kocom_wallpad_gas/config'
         payload = {
-            'name': 'Kocom Wallpad Gas',
+            'name': 'Wallpad Gas',
             'cmd_t': 'kocom/livingroom/gas/command',
             'stat_t': 'kocom/livingroom/gas/state',
             'val_tpl': '{{ value_json.state }}',
@@ -610,7 +610,7 @@ def publish_discovery(dev, sub=''):
             'qos': 0,
             'uniq_id': '{}_{}_{}'.format('kocom', 'wallpad', dev),
             'device': {
-                'name': '코콤 스마트 월패드',
+                'name': 'Kocom',
                 'ids': 'kocom_smart_wallpad',
                 'mf': 'KOCOM',
                 'mdl': '스마트 월패드',
@@ -624,7 +624,7 @@ def publish_discovery(dev, sub=''):
     elif dev == 'elevator':
         topic = 'homeassistant/switch/kocom_wallpad_elevator/config'
         payload = {
-            'name': 'Kocom Wallpad Elevator',
+            'name': 'Wallpad Elevator',
             'cmd_t': "kocom/myhome/elevator/command",
             'stat_t': "kocom/myhome/elevator/state",
             'val_tpl': "{{ value_json.state }}",
@@ -634,7 +634,7 @@ def publish_discovery(dev, sub=''):
             'qos': 0,
             'uniq_id': '{}_{}_{}'.format('kocom', 'wallpad', dev),
             'device': {
-                'name': '코콤 스마트 월패드',
+                'name': 'Kocom',
                 'ids': 'kocom_smart_wallpad',
                 'mf': 'KOCOM',
                 'mdl': '스마트 월패드',
@@ -651,7 +651,7 @@ def publish_discovery(dev, sub=''):
         # for num in range(1, int(config.get('User', 'light_count'))+1):  # only one light per room
         topic = 'homeassistant/light/kocom_{}_light{}/config'.format(sub, 1) # num -> 1
         payload = {
-            'name': 'Kocom {} Light{}'.format(sub, light_cnt),
+            'name': '{} Light'.format(sub),
             'cmd_t': 'kocom/{}/light/{}/command'.format(sub, 1),
             'stat_t': 'kocom/{}/light/state'.format(sub),
             'stat_val_tpl': '{{ value_json.light_' + str(1) + ' }}',
@@ -660,7 +660,7 @@ def publish_discovery(dev, sub=''):
             'qos': 0,
             'uniq_id': '{}_{}_{}{}'.format('kocom', 'wallpad', dev, light_cnt),
             'device': {
-                'name': '코콤 스마트 월패드',
+                'name': 'Kocom',
                 'ids': 'kocom_smart_wallpad',
                 'mf': 'KOCOM',
                 'mdl': '스마트 월패드',
@@ -676,7 +676,7 @@ def publish_discovery(dev, sub=''):
         #ha_topic = 'homeassistant/climate/kocom_livingroom_thermostat/config'
         topic = 'homeassistant/climate/kocom_{}_thermostat/config'.format(sub)
         payload = {
-            'name': 'Kocom {} Thermostat'.format(sub),
+            'name': '{} Thermostat'.format(sub),
             'mode_cmd_t': 'kocom/room/thermo/{}/heat_mode/command'.format(num),
             'mode_stat_t': 'kocom/room/thermo/{}/state'.format(num),
             'mode_stat_tpl': '{{ value_json.heat_mode }}',
@@ -694,7 +694,7 @@ def publish_discovery(dev, sub=''):
             'qos': 0,
             'uniq_id': '{}_{}_{}{}'.format('kocom', 'wallpad', dev, num),
             'device': {
-                'name': '코콤 스마트 월패드',
+                'name': 'Kocom',
                 'ids': 'kocom_smart_wallpad',
                 'mf': 'KOCOM',
                 'mdl': '스마트 월패드',
@@ -708,12 +708,12 @@ def publish_discovery(dev, sub=''):
     elif dev == 'query':
         topic = 'homeassistant/button/kocom_wallpad_query/config'
         payload = {
-            'name': 'Kocom Wallpad Query',
+            'name': 'Wallpad Query',
             'cmd_t': 'kocom/myhome/query/command',
             'qos': 0,
             'uniq_id': '{}_{}_{}'.format('kocom', 'wallpad', dev),
             'device': {
-                'name': '코콤 스마트 월패드',
+                'name': 'Kocom',
                 'ids': 'kocom_smart_wallpad',
                 'mf': 'KOCOM',
                 'mdl': '스마트 월패드',
