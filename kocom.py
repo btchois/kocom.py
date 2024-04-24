@@ -650,12 +650,12 @@ def publish_discovery(dev, sub=''):
         light_cnt = light_cnt + 1
      
         # for num in range(1, int(config.get('User', 'light_count'))+1):  # only one light per room
-        topic = 'homeassistant/light/kocom_{}_light{}/config'.format(sub, light_cnt)
+        topic = 'homeassistant/light/kocom_{}_light{}/config'.format(sub, 1) # num -> 1
         payload = {
             'name': 'Kocom {} Light{}'.format(sub, light_cnt),
-            'cmd_t': 'kocom/{}/light/{}/command'.format(sub, light_cnt),
+            'cmd_t': 'kocom/{}/light/{}/command'.format(sub, 1),
             'stat_t': 'kocom/{}/light/state'.format(sub),
-            'stat_val_tpl': '{{ value_json.light_' + str(light_cnt) + ' }}',
+            'stat_val_tpl': '{{ value_json.light_' + str(1) + ' }}',
             'pl_on': 'on',
             'pl_off': 'off',
             'qos': 0,
