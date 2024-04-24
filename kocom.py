@@ -78,13 +78,13 @@ def init_mqttc():
             time.sleep(10)
     return False
 
-def mqtt_on_subscribe(mqttc, obj, mid, granted_qos):
+def mqtt_on_subscribe(mqttc, obj, mid, granted_qos, properties): # , properties is added
     logging.info("[MQTT] Subscribed: " + str(mid) + " " + str(granted_qos))
 
 def mqtt_on_log(mqttc, obj, level, string):
     logging.info("[MQTT] on_log : "+string)
 
-def mqtt_on_connect(mqttc, userdata, flags, rc):
+def mqtt_on_connect(mqttc, userdata, flags, rc, properties): # , properties is added
     if rc == 0:
         logging.info("[MQTT] Connected - 0: OK")
         mqttc.subscribe('kocom/#', 0)
