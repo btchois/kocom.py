@@ -10,7 +10,6 @@
  python3 -m pip install pyserial
  python3 -m pip install paho-mqtt
  python3 -m pip install typing_extensions
- python3 -m pip install typing_extensions 
 '''
 import os
 import time
